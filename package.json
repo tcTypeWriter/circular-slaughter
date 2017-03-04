@@ -1,0 +1,27 @@
+{
+  "name": "circular-slaughter",
+  "version": "0.0.1",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha tests/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.sysnursery.org:students_34000/circular-slaughter.git"
+  },
+  "keywords": [
+    "game",
+    "2d-shooter",
+    "webSeckets",
+    "canvas"
+  ],
+  "author": "Suhoy <suhoy95@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "body-parser": "^1.17.0",
+    "express": "^4.15.0",
+    "mocha": "^3.2.0",
+    "ws": "^2.2.0"
+  }
+}
