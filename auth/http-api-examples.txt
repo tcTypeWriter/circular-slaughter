@@ -1,0 +1,21 @@
+GET http://localhost:8080/session/current HTTP/1.1
+Cookie: uuid=Tnhip7a3HWZ9DxUIlPLmyg%3D%3D
+
+###
+
+POST http://localhost:8080/session HTTP/1.1
+Content-Type: application/json
+
+{"login":"zxc","password":"zxc"}
+
+###
+
+POST http://localhost:8080/session/current HTTP/1.1
+Content-Type: application/json
+
+{"login":"zxc","password":"zxc"}
+
+###
+
+DELETE http://localhost:8080/session/current HTTP/1.1
+Cookie: uuid=Tnhip7a3HWZ9DxUIlPLmyg%3D%3D

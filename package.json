@@ -20,8 +20,10 @@
   "license": "ISC",
   "devDependencies": {
     "body-parser": "^1.17.0",
+    "cookie-parser": "^1.4.3",
     "express": "^4.15.0",
     "mocha": "^3.2.0",
+    "sqlite3": "^3.1.8",
     "ws": "^2.2.0"
   }
 }
