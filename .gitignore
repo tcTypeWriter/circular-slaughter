@@ -1,2 +1,6 @@
 node_modules/
+typings/
+.vscode/
+typings.json
 *.log
+*.sqlite3

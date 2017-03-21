@@ -3,7 +3,10 @@ const http = require('http');
 
 const express = require('express');
 const WebSocket = require('ws');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 
+const {auth} = require('./auth');
 
 const WIDTH = 800;
 const HEIGHT = 600;
@@ -15,6 +18,9 @@ const model = {
 
 const app = express();
 app.use(express.static(path.join(__dirname, 'html')));
+app.use(bodyParser.json());
+app.use(cookieParser());
+app.use('/',auth);
 
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });

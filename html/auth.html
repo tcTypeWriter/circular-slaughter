@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Auth example</title>
+    <style>
+        label {
+            display: inline-block;
+            width: 6em;
+            padding: 0.5em;
+            text-align: right;
+        }
+        fieldset {
+            width: 20em;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <form onsubmit="return ajaxlogin()">
+        <fieldset>
+            <legend>Вход</legend>
+            <label for="login">Login:</label><input id="login" placeholder="login" /><br/>
+            <label for="password">Password:</label><input id="password", placeholder="password" /><br/>
+            <button type="submit">Войти</button>
+        </fieldset>
+    </form>
+
+    <form onsubmit="return registration()">
+        <fieldset>
+            <legend>Регистрация</legend>
+            <label for="newlogin">Login:</label><input id="newlogin" placeholder="login" /><br/>
+            <label for="newpassword">Password:</label><input id="newpassword", placeholder="password" /><br />
+            <button type="submit">Зарегистрироваться</button>
+        </fieldset>
+    </form>
+
+    <button onclick="check()">Проверить авторизацию</button>
+    <pre id="status"></pre>
+
+    <script>
+        const headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+
+        function ajaxlogin() {
+            const login = document.getElementById('login').value;
+            const password = document.getElementById('password').value;
+
+            fetch('/session/current', {
+                method: 'POST',
+                headers,
+                body: JSON.stringify({ login, password }),
+                credentials: 'include'
+            })
+            .then((r) => r.json())
+            .then((data) =>
+                document.getElementById('status')
+                        .textContent = JSON.stringify(data, null, 2)
+            )
+            .catch((e) => console.log(e))
+
+            return false;
+        }
+
+        function registration() {
+            const login = document.getElementById('newlogin').value;
+            const password = document.getElementById('newpassword').value;
+
+            fetch('/session', {
+                method: 'POST',
+                headers,
+                body: JSON.stringify({ login, password })
+            }).then((r) => r.json())
+            .then((data) =>
+                document.getElementById('status')
+                        .textContent = JSON.stringify(data, null, 2)
+            )
+            .catch((e) => console.log(e));
+
+            return false;
+        }
+
+        function check() {
+            fetch('/session/current', {
+                method: 'GET',
+                credentials: 'include',
+            }).then((r) => r.json())
+            .then((data) =>
+                document.getElementById('status')
+                        .textContent = JSON.stringify(data, null, 2)
+            )
+            .catch((e) => console.log(e));
+        }
+    </script>
+</body>
+
+</html>
