@@ -1,0 +1,184 @@
+body, h1 {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#login {
+    background: green;
+}
+#choose-avatar {
+    background: yellow;
+}
+#game {
+    background: red;
+}
+#records {
+    background: orange;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.toolbar {
+    display: flex;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 10em;
+    padding: 0.3em;
+    font-size: 1.5em;
+    background: white;
+    border-right: 2px solid gray;
+    border-bottom: 2px solid gray;
+}
+
+.fix-view {
+    width: 800px;
+    height: 600px;
+    background: white;
+}
+
+.wrapper {
+    display: flex;
+    position: relative;
+    box-sizing: border-box;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 100px 0 0 0;
+}
+
+#login form {
+    width: 49%;
+}
+
+#login h2 {
+    padding: 0 0 0.3em 0;
+    margin: 0.5em 1em 1em;
+    border-bottom: 1px solid gray;
+    text-align: center;
+}
+
+#login input, #login button {
+    display: block;
+    box-sizing: border-box;
+    width: 80%;
+    margin: 0.3em auto;
+    font-size: 2em;
+}
+
+.messages {
+    width: 90%;
+    margin: 5%;
+}
+
+.messages div{
+    padding: 1em;
+    margin: 0 0 0.5em;
+    color: white;
+}
+
+.messages .success {
+    background: green;
+}
+
+.messages .failure {
+    background: red;
+}
+
+.avatars {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+    height: 90%;
+    overflow-y: scroll;
+    border-bottom: 1px solid gray;
+}
+
+.avatars input[type=radio] {
+    display: none;
+}
+
+.avatars label {
+    display: block;
+    width: 150px;
+    height: 150px;
+    padding: 20px;
+    margin-bottom: 4px;
+    border: 1px solid gray;
+    text-align: center;
+    font-size: 140px;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+.avatars label:hover {
+    background: orange;
+    cursor: pointer;
+}
+
+.avatars label:active,
+.avatars input:checked+label {
+    background: orangered;
+}
+
+#choose-avatar button {
+    display: block;
+    width: 25%;
+    height: 8%;
+    margin: 1% auto;
+}
+
+#records>div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.champion, .score {
+    box-sizing: border-box;
+    width: 49%;
+    padding: 5px;
+    margin: 3px 0 5px 0;
+    background: red;
+    font-size: 2em;
+    color: white;
+    text-align: center;
+}
+
+#records ol {
+    box-sizing: border-box;
+    width: 100%;
+    height: 500px;
+    padding: 0 0 0 5em;
+    margin: 0;
+    overflow-y: scroll;
+    background: greenyellow
+}
+
+#records li {
+    padding: 0.2em 0.5em 0.2em;
+    font-size: 1.6em;
+    border-bottom: 1px solid white;
+}
+
+#records li strong{
+    float: right;
+}
+
+#records button {
+    width: 150px;
+    margin-bottom: 4px;
+}
