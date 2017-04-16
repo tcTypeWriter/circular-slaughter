@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="toolbar">
+            <h1 class="logo">Login</h1>
+            <!--<h1 class="logo">Choose avatar</h1>-->
+            <!--<h1 class="logo">kill or die</h1>-->
+            <!--<h1 class="logo">Records</h1>-->
+            <div>
+                <select name="lang" class="lang">
+                    <option value="ru">ru</option>
+                    <option value="en">en</option>
+                </select>
+                <button class="logout">Log Out</button>
+            </div>
+        </div>
+
+        <section id="login" style="display: none">
+            <div class="wrapper fix-view">
+                <form name="login-form">
+                    <h2>Login</h2>
+                    <input type="text" name="login" placeholder="login"/>
+                    <input type="text" name="password" placeholder="password" />
+                    <button type="submit">Go</button>
+                </form>
+                <form name="register">
+                    <h2>Registeration</h2>
+                    <input type="text" name="new login" placeholder="login"/>
+                    <input type="text" name="password" placeholder="password" />
+                    <input type="text" name="repeat password" placeholder="repeat password" />
+                    <button type="submit">register</button>
+                </form>
+                <div class="messages">
+                    <div class="success">Success message</div>
+                    <div class="failure">Failure message</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="choose-avatar" style="display: none">
+            <form name="choose-avatar" class="fix-view">
+                <div class="avatars">
+                    <input id="a-1" type="radio" name="avatar" value="1"/>
+                    <label for="a-1" class="avatar">1</label>
+                    <input id="a-2" type="radio" name="avatar" value="2"/>
+                    <label for="a-2" class="avatar">2</label>
+                    <input id="a-3" type="radio" name="avatar" value="3"/>
+                    <label for="a-3" class="avatar">3</label>
+                    <input id="a-4" type="radio" name="avatar" value="4"/>
+                    <label for="a-4" class="avatar">4</label>
+
+                    <input id="a-5" type="radio" name="avatar" value="5"/>
+                    <label for="a-5" class="avatar">5</label>
+                    <input id="a-6" type="radio" name="avatar" value="6"/>
+                    <label for="a-6" class="avatar">6</label>
+                    <input id="a-7" type="radio" name="avatar" value="7"/>
+                    <label for="a-7" class="avatar">7</label>
+                    <input id="a-8" type="radio" name="avatar" value="8"/>
+                    <label for="a-8" class="avatar">8</label>
+
+                    <input id="a-9" type="radio" name="avatar" value="9"/>
+                    <label for="a-9" class="avatar">9</label>
+                    <input id="a-10" type="radio" name="avatar" value="10"/>
+                    <label for="a-10" class="avatar">10</label>
+                    <input id="a-11" type="radio" name="avatar" value="11"/>
+                    <label for="a-11" class="avatar">11</label>
+                    <input id="a-12" type="radio" name="avatar" value="12"/>
+                    <label for="a-12" class="avatar">12</label>
+
+                    <input id="a-13" type="radio" name="avatar" value="13"/>
+                    <label for="a-13" class="avatar">13</label>
+                    <input id="a-14" type="radio" name="avatar" value="14"/>
+                    <label for="a-14" class="avatar">14</label>
+                    <input id="a-15" type="radio" name="avatar" value="15"/>
+                    <label for="a-15" class="avatar">15</label>
+                    <input id="a-16" type="radio" name="avatar" value="16"/>
+                    <label for="a-16" class="avatar">16</label>
+                </div>
+                <button type="submit">Go</button>
+            </form>
+        </section>
+
+        <section id="game" style="display: none">
+            <canvas class="fix-view" id="canvas" width="800px" height="600px"></canvas>
+        </section>
+
+        <section id="records">
+            <div class="fix-view">
+                <div class="champion">Top: <strong>XXX</strong>[Ggelkian]</div>
+                <div class="score">Your score: ABC</div>
+                <ol>
+                    <li>Geanndet <strong>zzz</strong></li>
+                    <li>Ghyarama <strong>zzz</strong></li>
+                    <li>Gashicam <strong>zzz</strong></li>
+                    <li>Gidishad <strong>zzz</strong></li>
+                    <li>Getengor <strong>zzz</strong></li>
+                    <li>Gantonic <strong>zzz</strong></li>
+                    <li>Giowelum <strong>zzz</strong></li>
+                    <li>Gherount <strong>zzz</strong></li>
+                    <li>Goreonan <strong>zzz</strong></li>
+                    <li>Gohauric <strong>zzz</strong></li>
+                    <li>Gaicedye <strong>zzz</strong></li>
+                    <li>Gicevysi <strong>zzz</strong></li>
+                    <li>Gannonav <strong>zzz</strong></li>
+                    <li>Gieentai <strong>zzz</strong></li>
+                </ol>
+                <button>Go again</button>
+                <button>Change avatar</button>
+            </div>
+        </section>
+    </body>
+</html>
