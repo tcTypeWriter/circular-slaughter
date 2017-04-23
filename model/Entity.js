@@ -9,10 +9,12 @@ class Entity {
 
     static isIntersect(e1, e2) {
         // TODO
+
     }
 
     static distance(e1, e2) {
         // TODO
+        
     }
 
     static isInWorld(e) {
