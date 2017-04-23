@@ -1,4 +1,6 @@
 
+const  balance = require('./constants');
+
 class Point {
     constructor({ x, y }) {
         this.x = x;
@@ -6,10 +8,9 @@ class Point {
     }
 
     add(b) {
-        var a = this.x;
-        var c = this.y;
-        this.x = a + b.x;
-        this.y = c + b.y;
+        this.x += b.x;
+        this.y += b.y;
+        return this;
     }
     
 
@@ -20,7 +21,7 @@ class Point {
 
     static getRandom() {
         // TODO
-        return new Point({x : Math.floor(Math.random()*(800-1))+0, y: Math.floor(Math.random()*(600-1))+0});
+        return new Point({x : Math.floor(Math.random()*(balance.MAX_X-1)), y: Math.floor(Math.random()*(balance.MAX_Y-1))});
     }
 }
 
