@@ -12,7 +12,11 @@ class Point {
         this.y += b.y;
         return this;
     }
-    
+
+
+    static distanse(a, b) {
+        return 0;
+    }
 
     static fromRadial(angle, radius) {
         // TODO
