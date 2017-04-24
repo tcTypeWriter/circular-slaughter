@@ -8,9 +8,10 @@ class Point {
     }
 
     add(b) {
-        this.x += b.x;
-        this.y += b.y;
-        return this;
+        return new Point({
+            x: this.x + b.x,
+            y: this.y + b.y,
+        });
     }
 
 
