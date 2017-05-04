@@ -56,10 +56,10 @@ describe('Item - сущность, влияющая на игрока', () => {
         });
 
         it(`Снимает еще ${balance.POISON_POWER} здоровья через ${balance.POSION_TIME_INTERVAL} мс`, (done) => {
+            balance.POSION_TIME_INTERVAL = 100; // уменьшаем задержку для проведения теста
+
             const player = new Player();
             posion.imapct(player);
-
-            balance.POSION_TIME_INTERVAL = 100; // уменьшаем задержку для проведения теста
 
             setTimeout(() => {
                 assert.equal(player.health, balance.MAX_PLAYER_HEALTH - 2 * balance.POISON_POWER);
@@ -68,10 +68,10 @@ describe('Item - сущность, влияющая на игрока', () => {
         });
 
         it(`Таким образом снимает ${balance.POISON_TICKS} * ${balance.POISON_POWER} здоровья`, (done) => {
+            balance.POSION_TIME_INTERVAL = 100; // уменьшаем задержку для проведения теста
+
             const player = new Player();
             posion.imapct(player);
-
-            balance.POSION_TIME_INTERVAL = 100; // уменьшаем задержку для проведения теста
 
             setTimeout(() => {
                 assert.equal(player.health, balance.MAX_PLAYER_HEALTH - balance.POISON_TICKS * balance.POISON_POWER);
