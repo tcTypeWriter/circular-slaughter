@@ -29,9 +29,9 @@ class Point {
 
     static getRandom() {
         // TODO
-        return new Point({ 
-            x: Math.floor(Math.random() * (ba.balance.MAX_X - 1)), 
-            y: Math.floor(Math.random() * (ba.balance.MAX_Y - 1)), 
+        return new Point({
+            x: Math.floor(Math.random() * (ba.balance.MAX_X - 1)),
+            y: Math.floor(Math.random() * (ba.balance.MAX_Y - 1)),
         });
     }
 }

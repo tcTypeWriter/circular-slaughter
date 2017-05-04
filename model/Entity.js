@@ -26,7 +26,7 @@ class Entity {
         // TODO
 
         return !(e.pos.x < ba.balance.MIN_X || e.pos.x > ba.balance.MAX_X
-              || e.pos.y < ba.balance.MIN_Y || e.pos.y > ba.balance.MAX_Y);
+            || e.pos.y < ba.balance.MIN_Y || e.pos.y > ba.balance.MAX_Y);
     }
 
     // use MIN_X/MAX_X ...

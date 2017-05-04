@@ -21,7 +21,7 @@ describe('Player -  сущность игрок', () => {
         assert.equal(player.health, balance.MAX_PLAYER_HEALTH);
     });
 
-    describe.skip('Изменение здоровья (допустимо от 0 до MAX_PLAYER_HEALTH)', () => {
+    describe('Изменение здоровья (допустимо от 0 до MAX_PLAYER_HEALTH)', () => {
         let player = new Player();
 
         beforeEach(() => {
@@ -44,7 +44,7 @@ describe('Player -  сущность игрок', () => {
         });
     });
 
-    describe.skip('Метод move - перемещает игрока', () => {
+    describe ('Метод move - перемещает игрока', () => {
         let player = new Player();
         let speed = 0;
         let diagonalShift = 0;

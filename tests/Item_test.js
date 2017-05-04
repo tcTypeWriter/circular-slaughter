@@ -12,7 +12,7 @@ describe('Item - сущность, влияющая на игрока', () => {
         assert.equal(item.type, 'some type');
     });
 
-    describe.skip('Heal - Item который фосстанавливает игроку здоровье', () => {
+    describe('Heal - Item который фосстанавливает игроку здоровье', () => {
         const heal = new Heal({ x: 0, y: 0 });
 
         it(`this.type === ${ItemTypes.HEAL}`, () => {
@@ -34,7 +34,7 @@ describe('Item - сущность, влияющая на игрока', () => {
 
     });
 
-    describe.skip('Posion - Item который фосстанавливает игроку здоровье', () => {
+    describe('Posion - Item который фосстанавливает игроку здоровье', () => {
         const posion = new Posion({ x: 0, y: 0 });
         let posion_interval = balance.POSION_TIME_INTERVAL;
 
