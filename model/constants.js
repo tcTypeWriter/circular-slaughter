@@ -23,16 +23,32 @@ exports.balance = {
     SAW_DAMAGE_INTERVAL: 1000,
     SAW_RADIUS: 40,
     SAW_SPEED: 2,
+
+    BULLET_RADIUS: 5,
+
+    BULLET_LIGHT_DAMAGE: 2,
+    BULLET_BALANCED_DAMAGE: 5,
+    BULLET_HEAVY_DAMAGE: 10,
+
+    BULLET_LIGHT_SPEED: 5,
+    BULLET_BALANCED_SPEED: 2,
+    BULLET_HEAVY_SPEED: 1,
 };
 
 exports.ItemTypes = {
     HEAL: 'HEAL',
-    POSION: 'POSION'
+    POSION: 'POSION',
 };
 
 exports.TrapTypes = {
-    SAW: 'SAW'
+    SAW: 'SAW',
 };
+
+exports.BulletTypes = {
+    LIGHT: 'LIGHT',
+    BALANCED: 'BALANCED',
+    HEAVY: 'HEAVY',
+}
 
 exports.directions = {
     UP: 0b0001,
