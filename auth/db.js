@@ -4,19 +4,15 @@ const sqlite3 = require('sqlite3');
 
 const db = new sqlite3.Database(path.join(__dirname, 'circular-slaughter.sqlite3'));
 
-const public = {
+const moduleAPI = {
     init() {
-
         db.serialize(() => {
             db.exec(
                 `CREATE TABLE IF NOT EXISTS Users (
                     id INTEGER PRIMARY KEY ASC AUTOINCREMENT,
                     login VARCHAR(255) UNIQUE,
                     password VARCHAR(255)
-                );`,
-                () => console.log('Таблица Users создна')
-            );
-
+                );`, () => console.log('Таблица Users создна'));
         });
     },
 
@@ -24,7 +20,7 @@ const public = {
         console.log(`[findUser] login='${login}' password='${password}'`);
 
         db.get(
-            `SELECT * FROM Users WHERE login = ? and password = ?`,
+            'SELECT * FROM Users WHERE login = ? and password = ?',
             [login, password],
             callback);
     },
@@ -33,13 +29,13 @@ const public = {
         console.log(`[createUser] login='${login}' password='${password}'`);
 
         db.run(
-            `INSERT INTO Users (login, password) VALUES (?, ?)`,
+            'INSERT INTO Users (login, password) VALUES (?, ?)',
             [login, password],
             callback);
-    }
+    },
 };
 
-module.exports = public;
+module.exports = moduleAPI;
 
 /**
  *
@@ -49,22 +45,22 @@ module.exports = public;
  *
  */
 if (require.main === module) {
-    const assert = require('assert');
+    const assert = require('assert'); // eslint-disable-line global-require
 
-    public.init();
+    moduleAPI.init();
 
-    public.createUser('admin', 'admin', (err) => {
-        if (err) {
-            return console.warn(err);
+    moduleAPI.createUser('admin', 'admin', (err1) => {
+        if (err1) {
+            return console.warn(err1);
         }
 
-        public.findUser('admin', 'admin', (err, user) => {
-            if (err) {
-                return console.warn(err);
+        return moduleAPI.findUser('admin', 'admin', (err2, user) => {
+            if (err2) {
+                return console.warn(err2);
             }
 
             assert(user);
-            console.log(`Пользователь '${user.login}' существует\n${JSON.stringify(user, null, 2)}`);
+            return console.log(`Пользователь '${user.login}' существует\n${JSON.stringify(user, null, 2)}`);
         });
     });
 }

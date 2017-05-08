@@ -19,22 +19,65 @@ class Heal extends Item {
     }
 
     impact(player) {
-        // TODO
+        player.health += balance.HEAL_POWER;
     }
 }
 
-class Posion extends Item {
+class Poison extends Item {
     constructor(position) {
-        super(position, balance.POISON_RADIUS, ItemTypes.POSION)
+        super(position, balance.POISON_RADIUS, ItemTypes.POISON);
     }
 
     imapct(player) {
-        // TODO
+        let ticks = balance.POISON_TICKS;
+        player.health -= balance.POISON_POWER;
+
+        const interval = setInterval(() => {
+            ticks -= 1;
+            if (ticks <= 0) {
+                clearInterval(interval);
+                return;
+            }
+            player.health -= balance.POISON_POWER;
+        }, balance.POISON_TIME_INTERVAL);
+    }
+}
+
+class MachineGun extends Item {
+    constructor(position) {
+        super(position, balance.GUN_RADIUS, ItemTypes.MACHINE_GUN);
+    }
+
+    imapct(player) {
+
+    }
+}
+
+class Pistol extends Item {
+    constructor(position) {
+        super(position, balance.GUN_RADIUS, ItemTypes.Pistol);
+    }
+
+    imapct(player) {
+
+    }
+}
+
+class RocketGun extends Item {
+    constructor(position) {
+        super(position, balance.GUN_RADIUS, ItemTypes.ROCKET_GUN);
+    }
+
+    imapct(player) {
+
     }
 }
 
 module.exports = {
     Item,
     Heal,
-    Posion
-}
+    Poison,
+    MachineGun,
+    Pistol,
+    RocketGun,
+};

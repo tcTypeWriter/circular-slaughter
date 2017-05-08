@@ -1,6 +1,7 @@
 const { balance, directions } = require('./constants');
 
 const Entity = require('./Entity');
+const Point = require('./Point');
 
 class Player extends Entity {
 
@@ -8,6 +9,9 @@ class Player extends Entity {
         super(position, r);
         this.ava = avatar;
         this._health = balance.MAX_PLAYER_HEALTH;
+        this.createBullet = () => null;
+        this.bullet = null;
+        this.calldown = Infinity;
     }
 
     get health() {
@@ -15,8 +19,14 @@ class Player extends Entity {
     }
 
     set health(value) {
-        // TODO logic
-        this._health = value;
+        if (value < 0) {
+            this._health = 0;
+        } else if (value > balance.MAX_PLAYER_HEALTH) {
+            this._health = balance.MAX_PLAYER_HEALTH;
+        } else {
+            this._health = value;
+        }
+        return this._health;
     }
 
     get speed() {
@@ -24,7 +34,37 @@ class Player extends Entity {
     }
 
     move(direction) {
-        // TODO
+        const diagonalShift = this.speed / Math.sqrt(2);
+        const prevX = this.pos.x;
+        const prevY = this.pos.y;
+        switch (direction) {
+        case directions.RIGHT:
+            this.pos = new Point({ x: prevX + this.speed, y: prevY });
+            break;
+        case directions.LEFT:
+            this.pos = new Point({ x: prevX - this.speed, y: prevY });
+            break;
+        case directions.UP:
+            this.pos = new Point({ x: prevX, y: prevY - this.speed });
+            break;
+        case directions.DOWN:
+            this.pos = new Point({ x: prevX, y: prevY + this.speed });
+            break;
+        case (directions.RIGHT | directions.UP):
+            this.pos = new Point({ x: prevX + diagonalShift, y: prevY - diagonalShift });
+            break;
+        case (directions.RIGHT | directions.DOWN):
+            this.pos = new Point({ x: prevX + diagonalShift, y: prevY + diagonalShift });
+            break;
+        case (directions.LEFT | directions.UP):
+            this.pos = new Point({ x: prevX - diagonalShift, y: prevY - diagonalShift });
+            break;
+        case (directions.LEFT | directions.DOWN):
+            this.pos = new Point({ x: prevX - diagonalShift, y: prevY + diagonalShift });
+            break;
+        default:
+        }
+        return this.pos;
     }
 
 }
