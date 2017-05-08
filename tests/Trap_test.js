@@ -32,7 +32,7 @@ describe('Trap - ловушка, меняющаяся со временем, и 
             assert.equal(saw.direction, rDir.CLOCKWISE);
         });
 
-        describe.skip(`метод update - перемещает пилу со скоростью ${balance.SAW_SPEED}`, () => {
+        describe(`метод update - перемещает пилу со скоростью ${balance.SAW_SPEED}`, () => {
             it('Перемещение по часовой стрелки', () => {
                 saw = new Saw({ x: 0, y: 0 }, 0, 200, rDir.CLOCKWISE);
 
@@ -52,7 +52,7 @@ describe('Trap - ловушка, меняющаяся со временем, и 
             });
         });
 
-        describe.skip(`метод impact - наносит игроку ${balance.SAW_DAMAGE} урона`, () => {
+        describe(`метод impact - наносит игроку ${balance.SAW_DAMAGE} урона`, () => {
             let player = null;
 
             const saw_interval = balance.SAW_DAMAGE_INTERVAL;

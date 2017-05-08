@@ -13,11 +13,11 @@ class Bullet extends Entity {
     }
 
     update() {
-        // TODO
+
     }
 
     impact(player) {
-        // TODO
+
     }
 }
 

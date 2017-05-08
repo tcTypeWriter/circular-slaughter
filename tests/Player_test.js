@@ -1,6 +1,8 @@
 const assert = require('assert');
 
-const { balance, directions: dir } = require('../model/constants');
+const { LightBullet } = require('../model/Bullet');
+
+const { balance, BulletTypes, directions: dir } = require('../model/constants');
 const Player = require('../model/Player');
 
 describe('Player -  сущность игрок', () => {
@@ -18,6 +20,21 @@ describe('Player -  сущность игрок', () => {
     it('health - здоровье игрока, изначально определяется константой MAX_PLAYER_HEALTH', () => {
         const player = new Player({ x: 0, y: 0 }, 10, '');
         assert.equal(player.health, balance.MAX_PLAYER_HEALTH);
+    });
+
+    it(`bullet - потроны игрока, изначально ${BulletTypes.LIGHT}`, () => {
+        const player = new Player({ x: 0, y: 0 }, 10, '');
+        assert.equal(player.bullet, LightBullet);
+    });
+
+    it(`calldown - откат выстрела игрока, изначально ${balance.BULLET_CALLDOWN[BulletTypes.LIGHT]}`, () => {
+        const player = new Player({ x: 0, y: 0 }, 10, '');
+        assert.equal(player.calldown, balance.BULLET_CALLDOWN[BulletTypes.LIGHT]);
+    });
+
+    it('createBullet - функция, которой игрок может создавать пули в игре', () => {
+        const player = new Player({ x: 0, y: 0 }, 10, '');
+        assert.ok(player.createBullet instanceof Function);
     });
 
     describe('Изменение здоровья (допустимо от 0 до MAX_PLAYER_HEALTH)', () => {

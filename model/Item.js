@@ -43,8 +43,41 @@ class Poison extends Item {
     }
 }
 
+class MachineGun extends Item {
+    constructor(position) {
+        super(position, balance.GUN_RADIUS, ItemTypes.MACHINE_GUN);
+    }
+
+    imapct(player) {
+
+    }
+}
+
+class Pistol extends Item {
+    constructor(position) {
+        super(position, balance.GUN_RADIUS, ItemTypes.Pistol);
+    }
+
+    imapct(player) {
+
+    }
+}
+
+class RocketGun extends Item {
+    constructor(position) {
+        super(position, balance.GUN_RADIUS, ItemTypes.ROCKET_GUN);
+    }
+
+    imapct(player) {
+
+    }
+}
+
 module.exports = {
     Item,
     Heal,
     Poison,
+    MachineGun,
+    Pistol,
+    RocketGun,
 };

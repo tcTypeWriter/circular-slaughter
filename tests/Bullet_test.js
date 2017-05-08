@@ -7,7 +7,7 @@ const Point = require('../model/Point');
 const { balance, BulletTypes } = require('../model/constants');
 const { LightBullet, BalancedBullet, HeavyBullet } = require('../model/Bullet');
 
-describe.skip('Bullet - пули.', () => {
+describe('Bullet - пули.', () => {
     describe('LightBullet - быстрая легкая пуля', () => {
         let bullet = null;
 

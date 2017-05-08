@@ -1,6 +1,10 @@
 const ItemTypes = {
     HEAL: 'HEAL',
     POISON: 'POISON',
+
+    MACHINE_GUN: 'MACHINE_GUN',
+    PISTOL: 'PISTOL',
+    ROCKET_GUN: 'ROCKET_GUN',
 };
 
 const TrapTypes = {
@@ -45,6 +49,8 @@ const balance = {
     POISON_TICKS: 10,
     POISON_TIME_INTERVAL: 1000,
 
+    GUN_RADIUS: 25,
+
     SAW_DAMAGE: 10,
     SAW_DAMAGE_INTERVAL: 1000,
     SAW_RADIUS: 40,
@@ -62,6 +68,12 @@ const balance = {
         [BulletTypes.LIGHT]: 5,
         [BulletTypes.BALANCED]: 2,
         [BulletTypes.HEAVY]: 1,
+    },
+
+    BULLET_CALLDOWN: {
+        [BulletTypes.LIGHT]: 100,
+        [BulletTypes.BALANCED]: 200,
+        [BulletTypes.HEAVY]: 400,
     },
 };
 

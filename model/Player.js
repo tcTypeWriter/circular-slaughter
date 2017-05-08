@@ -9,6 +9,9 @@ class Player extends Entity {
         super(position, r);
         this.ava = avatar;
         this._health = balance.MAX_PLAYER_HEALTH;
+        this.createBullet = () => null;
+        this.bullet = null;
+        this.calldown = Infinity;
     }
 
     get health() {
