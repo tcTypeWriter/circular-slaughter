@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-08 23:21+0500\n"
+"POT-Creation-Date: 2017-05-09 00:14+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,14 +17,6 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: html/script.js:44
-msgid "Hello, world!"
-msgstr ""
-
-#: html/script.js:48
-msgid "abc"
-msgstr ""
-
-#: html/script.js:57
-msgid "Hello, Jed"
+#: frontend/index.js:13
+msgid "Hello, world"
 msgstr ""

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-08 23:21+0500\n"
+"POT-Creation-Date: 2017-05-09 00:14+0500\n"
 "PO-Revision-Date:\n"
 "Last-Translator: Сухоплюев Илья <suhoy95@gmail.com>\n"
 "Language-Team: \n"
@@ -14,14 +14,6 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Poedit 1.8.7.1\n"
 
-#: html/script.js:44
-msgid "Hello, world!"
-msgstr "Привет, мир"
-
-#: html/script.js:48
-msgid "abc"
-msgstr ""
-
-#: html/script.js:57
-msgid "Hello, Jed"
-msgstr "ПРивет, Jed"
+#: frontend/index.js:13
+msgid "Hello, world"
+msgstr "Привет мир"
