@@ -6,26 +6,27 @@ const Point = require('../model/Point');
 
 describe('Point - сущность для координат обьектов', () => {
 
-    describe.skip('метод add - прибовляет к текущей точке координаты', () => {
+    describe('метод add - прибовляет к текущей точке координаты', () => {
+
         it('простое сложение', () => {
             let a = new Point({ x: 0, y: 0 });
             let b = new Point({ x: 10, y: 23 });
 
-            a.add(b);
+            let c = a.add(b);
 
-            assert.equal(a.x, 10);
-            assert.equal(a.y, 23);
+            assert.equal(c.x, 10);
+            assert.equal(c.y, 23);
         });
 
-        it('метод add возвращает текущий обьект Point', () => {
+        it('метод add не возвращает текущий обьект Point', () => {
             let a = new Point({ x: 0, y: 0 });
             let b = new Point({ x: 10, y: 23 });
 
-            assert.equal(a.add(b), a);
+            assert.ok(a.add(b) !== a);
         });
     });
+    describe('static fromRadial - создает точку из радиальной системы координат', () => {
 
-    describe.skip('static fromRadial - создает точку из радиальной системы координат', () => {
         it('возвращает обьект Point', () => {
             const p = Point.fromRadial(0, 10);
 
@@ -38,9 +39,10 @@ describe('Point - сущность для координат обьектов', 
             assertDouble(p.x, Math.sqrt(3) / 2);
             assertDouble(p.y, 1 / 2);
         });
+
     });
 
-    describe.skip('getRandom - создает случайную точку внутри мира', () => {
+    describe('getRandom - создает случайную точку внутри мира', () => {
 
         it('возвращает обьект Point', () => {
             const p = Point.getRandom();
