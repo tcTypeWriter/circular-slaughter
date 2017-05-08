@@ -14,11 +14,18 @@ class Point {
         });
     }
 
-
     distance(b) {
         const distX = b.x - this.x;
         const distY = b.y - this.y;
         return Math.sqrt((distX * distX) + (distY * distY));
+    }
+
+    get length() {
+        return this.distance({ x: 0, y: 0 });
+    }
+
+    toString() {
+        return JSON.stringify(this);
     }
 
     static fromRadial(angle, radius) {
