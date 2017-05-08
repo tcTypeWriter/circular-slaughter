@@ -4,7 +4,8 @@
         "browser": true,
         "commonjs": true,
         "es6": true,
-        "node": true
+        "node": true,
+        "mocha": true
     },
     "parserOptions": {
         "ecmaVersion": 6,
@@ -18,6 +19,13 @@
         "indent": ["error", 4],
         "class-methods-use-this": "off",
 
-        "no-unused-vars": "warn"
+        "no-unused-vars": "warn",
+        "no-param-reassign": "off",
+        "no-mixed-operators": "off",
+        "no-multi-assign": "off",
+        "camelcase": "off",
+        "no-bitwise": "off",
+        "no-underscore-dangle": "off",
+        "no-restricted-properties": "off"
     }
 }

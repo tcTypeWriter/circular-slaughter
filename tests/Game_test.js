@@ -1,12 +1,11 @@
+// @ts-nocheck
 
 const assert = require('assert');
 
 const Game = require('../model/Game');
-const {Trap} = require('../model/Trap');
-const {Item} = require('../model/Item');
+const { Trap } = require('../model/Trap');
 
 describe.skip('Game - обьект, свзывающий все сущности', () => {
-
     it('this.generateNewTrap - создает случайную ловушку, со случайным параметрами', () => {
         const game = new Game();
 
@@ -24,5 +23,4 @@ describe.skip('Game - обьект, свзывающий все сущности
 
         assert.ok(item instanceof Trap);
     });
-
 });

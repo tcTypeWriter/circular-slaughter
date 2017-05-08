@@ -1,6 +1,6 @@
 const ItemTypes = {
     HEAL: 'HEAL',
-    POSION: 'POSION',
+    POISON: 'POISON',
 };
 
 const TrapTypes = {
@@ -43,7 +43,7 @@ const balance = {
     POISON_RADIUS: 20,
     POISON_POWER: 3,
     POISON_TICKS: 10,
-    POSION_TIME_INTERVAL: 1000,
+    POISON_TIME_INTERVAL: 1000,
 
     SAW_DAMAGE: 10,
     SAW_DAMAGE_INTERVAL: 1000,

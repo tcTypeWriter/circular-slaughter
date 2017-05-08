@@ -45,5 +45,5 @@ class Saw extends Trap {
 
 module.exports = {
     Trap,
-    Saw
+    Saw,
 };

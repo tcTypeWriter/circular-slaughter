@@ -4,7 +4,6 @@ const { balance, directions: dir } = require('../model/constants');
 const Player = require('../model/Player');
 
 describe('Player -  сущность игрок', () => {
-
     it('ava - аватар игрока', () => {
         const player = new Player({ x: 0, y: 0 }, 10, '/img/test.png');
 
@@ -44,7 +43,7 @@ describe('Player -  сущность игрок', () => {
         });
     });
 
-    describe ('Метод move - перемещает игрока', () => {
+    describe('Метод move - перемещает игрока', () => {
         let player = new Player();
         let speed = 0;
         let diagonalShift = 0;
@@ -105,5 +104,4 @@ describe('Player -  сущность игрок', () => {
             assert.deepEqual(player.pos, { x: 0, y: 0 });
         });
     });
-
 });
