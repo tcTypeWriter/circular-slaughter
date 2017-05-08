@@ -1,4 +1,6 @@
 {
+    "parser": "babel-eslint",
+    "plugins": ["async-await"],
     "extends": "airbnb",
     "env": {
         "browser": true,

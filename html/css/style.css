@@ -8,7 +8,7 @@ body, h1 {
 #login {
     background: green;
 }
-#choose-avatar {
+#chooseAvatar {
     background: yellow;
 }
 #game {
@@ -140,7 +140,7 @@ section {
     background: orangered;
 }
 
-#choose-avatar button {
+#chooseAvatar button {
     display: block;
     width: 25%;
     height: 8%;

@@ -4,7 +4,13 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "mocha tests/"
+    "run": "nodd server.js",
+    "test": "mocha tests/",
+    "xgettext": "xgettext -o html/langs/en.po html/*.js",
+    "msgmerge_ru": "msgmerge -o html/langs/ru.po html/langs/ru.po html/langs/en.po",
+    "po2json": "npm run po2json_ru && npm run po2json_en",
+    "po2json_en": "po2json --pretty --format jed --domain cs html/langs/en.po html/langs/en.json",
+    "po2json_ru": "po2json --pretty --format jed --domain cs html/langs/ru.po html/langs/ru.json"
   },
   "repository": {
     "type": "git",
@@ -24,13 +30,17 @@
     "express": "^4.15.0",
     "mocha": "^3.2.0",
     "sqlite3": "^3.1.8",
+    "jed": "^1.1.1",
     "ws": "^2.2.0"
   },
   "devDependencies": {
+    "babel-eslint": "^7.2.3",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-async-await": "0.0.0",
     "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^5.0.1",
-    "eslint-plugin-react": "^7.0.0"
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.9.0",
+    "po2json": "^0.4.5"
   }
 }
