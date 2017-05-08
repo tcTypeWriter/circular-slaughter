@@ -1,9 +1,5 @@
 
-const {balance, ItemTypes, TrapTypes} = require('./constants');
-
-const Player = require('./Player');
-const Trap = require('./Trap');
-const Item = require('./Item');
+const { balance } = require('./constants');
 
 class Game {
     constructor() {
@@ -16,17 +12,17 @@ class Game {
      * Запускает игровые таймеры, которые генерируют события в игре
      */
     start() {
-        if(this.trapTimeout || this.itemTimeout) {
+        if (this.trapTimeout || this.itemTimeout) {
             console.warn('Trying to start game again');
             return;
         }
 
-        let newTrapEvent = () => {
+        const newTrapEvent = () => {
             this.generateNewTrap();
             this.trapTimeout = setTimeout(newTrapEvent, balance.NEW_TRAP_TIMEOUT);
         };
 
-        let newItemEvent = () => {
+        const newItemEvent = () => {
             this.generateNewItem();
             this.itemTimeout = setTimeout(newItemEvent, balance.NEW_ITEM_TIMEOUT);
         };

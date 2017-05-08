@@ -14,21 +14,25 @@ class Point {
         });
     }
 
+    distance(b) {
+        const distX = b.x - this.x;
+        const distY = b.y - this.y;
+        return Math.sqrt((distX * distX) + (distY * distY));
+    }
 
-    distanse(b) {
-        let dist_x = b.x - this.x;
-        let dist_y = b.y - this.y;
-        let a = Math.sqrt((dist_x * dist_x) + (dist_y * dist_y));
-        return a;
+    get length() {
+        return this.distance({ x: 0, y: 0 });
+    }
+
+    toString() {
+        return JSON.stringify(this);
     }
 
     static fromRadial(angle, radius) {
-        // TODO
         return new Point({ x: radius * Math.cos(angle), y: radius * Math.sin(angle) });
     }
 
     static getRandom() {
-        // TODO
         return new Point({
             x: Math.floor(Math.random() * (ba.balance.MAX_X - 1)),
             y: Math.floor(Math.random() * (ba.balance.MAX_Y - 1)),

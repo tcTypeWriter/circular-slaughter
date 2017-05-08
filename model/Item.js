@@ -19,42 +19,56 @@ class Heal extends Item {
     }
 
     impact(player) {
-        // TODO
-        player._health += balance.HEAL_POWER;
+        player.health += balance.HEAL_POWER;
     }
 }
 
-class Posion extends Item {
+class Poison extends Item {
     constructor(position) {
-        super(position, balance.POISON_RADIUS, ItemTypes.POSION)
+        super(position, balance.POISON_RADIUS, ItemTypes.POISON);
     }
 
     imapct(player) {
-        // TODO
-
-        //let t = setTimeout(this.imapct.bind(player), balance.POSION_TIME_INTERVAL);
         let ticks = balance.POISON_TICKS;
-        let a = player._health;
-        a -= balance.POISON_POWER;
-        player._health = a;
-        let interval = setInterval(() => {
-            ticks--;
+        player.health -= balance.POISON_POWER;
+
+        const interval = setInterval(() => {
+            ticks -= 1;
             if (ticks <= 0) {
                 clearInterval(interval);
-                return
+                return;
             }
-            this.imapct;
-            // do some shit
-        }, balance.POSION_TIME_INTERVAL);
-        //for (let i = 1; i <= balance.POISON_TICKS; i++) {
-        //setTimeout(
-        // ()=>{
-        // player._health-=balance.POISON_POWER;
-        //},
-        // balance.POSION_TIME_INTERVAL
-        //);
-        //  }
+            player.health -= balance.POISON_POWER;
+        }, balance.POISON_TIME_INTERVAL);
+    }
+}
 
+class MachineGun extends Item {
+    constructor(position) {
+        super(position, balance.GUN_RADIUS, ItemTypes.MACHINE_GUN);
+    }
+
+    imapct(player) {
+
+    }
+}
+
+class Pistol extends Item {
+    constructor(position) {
+        super(position, balance.GUN_RADIUS, ItemTypes.Pistol);
+    }
+
+    imapct(player) {
+
+    }
+}
+
+class RocketGun extends Item {
+    constructor(position) {
+        super(position, balance.GUN_RADIUS, ItemTypes.ROCKET_GUN);
+    }
+
+    imapct(player) {
 
     }
 }
@@ -62,5 +76,8 @@ class Posion extends Item {
 module.exports = {
     Item,
     Heal,
-    Posion
-}
+    Poison,
+    MachineGun,
+    Pistol,
+    RocketGun,
+};
