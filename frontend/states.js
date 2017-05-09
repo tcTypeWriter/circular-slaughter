@@ -24,6 +24,7 @@ const header = {
 const forms = {
     loginForm: sections.login.querySelector('form[name=login-form]'),
     registerForm: sections.login.querySelector('form[name=register-form]'),
+    chooseAvatarForm: sections.chooseAvatar.querySelector('form'),
 };
 
 function renderLogin() {
@@ -43,10 +44,8 @@ function renderLogin() {
 
     loginForm.querySelector('h2')
              .textContent = _('Log In');
-    loginForm.querySelector('input[name=login]')
-             .setAttribute('placeholder', _('login'));
-    loginForm.querySelector('input[name=password]')
-             .setAttribute('placeholder', _('password'));
+    loginForm.login.setAttribute('placeholder', _('login'));
+    loginForm.password.setAttribute('placeholder', _('password'));
     loginForm.querySelector('button[type=submit]')
              .textContent = _('Go');
 
@@ -54,12 +53,9 @@ function renderLogin() {
 
     registerForm.querySelector('h2')
              .textContent = _('Registration');
-    registerForm.querySelector('input[name=new-login]')
-             .setAttribute('placeholder', _('new login'));
-    registerForm.querySelector('input[name=password]')
-             .setAttribute('placeholder', _('password'));
-    registerForm.querySelector('input[name=repeat-password]')
-             .setAttribute('placeholder', _('repeat password'));
+    registerForm['new-login'].setAttribute('placeholder', _('new login'));
+    registerForm.password.setAttribute('placeholder', _('password'));
+    registerForm['repeat-password'].setAttribute('placeholder', _('repeat password'));
     registerForm.querySelector('button[type=submit]')
              .textContent = _('Register');
 }
@@ -72,8 +68,33 @@ function renderChooseAvatar() {
     logo.textContent = _('Choose avatar');
     lang.style.display = 'inline-block';
     logout.style.display = 'inline-block';
+    logout.textContent = _('Log out');
+
+    const button = s.querySelector('button[type=submit]');
+    button.textContent = _('Go');
 }
 
+function renderGame() {
+    const s = sections.game;
+    s.style.display = 'flex';
+
+    const { logo, lang, logout } = header;
+    logo.textContent = _('Kill or Die');
+    lang.style.display = 'inline-block';
+    logout.style.display = 'inline-block';
+    logout.textContent = _('Log out');
+}
+
+function renderRecords() {
+    const s = sections.records;
+    s.style.display = 'flex';
+
+    const { logo, lang, logout } = header;
+    logo.textContent = _('Records');
+    lang.style.display = 'inline-block';
+    logout.style.display = 'inline-block';
+    logout.textContent = _('Log out');
+}
 
 let current = States.LOGIN;
 
@@ -89,18 +110,22 @@ function renderState(state) {
     case States.CHOOSE_AVATAR:
         renderChooseAvatar();
         break;
+    case States.GAME:
+        renderGame();
+        break;
+    case States.RECORDS:
+        renderRecords();
+        break;
     default:
         console.warn('Bad State on render state');
     }
 }
 
 
-module.exports = {
-    States,
-    renderState,
-    dom: {
-        sections,
-        header,
-        forms,
-    },
+exports.States = States;
+exports.renderState = renderState;
+exports.dom = {
+    sections,
+    header,
+    forms,
 };

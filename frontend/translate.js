@@ -35,24 +35,25 @@ function _(msgid, string) {
     return translator.translate(msgid).fetch(string);
 }
 
-module.exports = {
-    async initTranslate() {
-        const langs = document.body.querySelector('.lang');
-        langs.addEventListener('change', async () => {
-            localStorage.setItem('lang', langs.value);
-            await changeLangs(langs.value);
-            const { renderState } = require('./states');
-            renderState();
-        });
 
-        let prevLang = localStorage.getItem('lang');
-        if (prevLang !== 'en' && prevLang !== 'ru') {
-            prevLang = 'en';
-        }
-        langs.value = prevLang;
-        await changeLangs(prevLang);
-    },
-    changeLangs,
-    _,
-};
+async function init() {
+    const langs = document.body.querySelector('.lang');
+    langs.addEventListener('change', async () => {
+        localStorage.setItem('lang', langs.value);
+        await changeLangs(langs.value);
 
+        const states = require('./states'); // eslint-disable-line global-require
+        states.renderState();
+    });
+
+    let prevLang = localStorage.getItem('lang');
+    if (prevLang !== 'en' && prevLang !== 'ru') {
+        prevLang = 'en';
+    }
+    langs.value = prevLang;
+    await changeLangs(prevLang);
+}
+
+exports.init = init;
+exports.changeLangs = changeLangs;
+exports._ = _;

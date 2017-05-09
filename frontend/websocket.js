@@ -4,7 +4,7 @@ module.exports = function webSocketExample() {
 
     function renderData(data) {
         const { points, id } = data;
-        const ctx = document.getElementById('canvas').getContext('2d');
+        const ctx = document.getElementById('game').getContext('2d');
 
         ctx.clearRect(0, 0, 800, 600);
 

@@ -4,6 +4,7 @@ const { balance } = require('./constants');
 class Game {
     constructor() {
         this.players = [];
+        this.bullets = [];
         this.traps = [];
         this.items = [];
     }
@@ -38,13 +39,24 @@ class Game {
     }
 
     generateNewTrap() {
-        // TODO
+
     }
 
     generateNewItem() {
-        // TODO
+
     }
 
+    update() {
+
+    }
+
+    bulletsUpdate() {
+
+    }
+
+    trapsUpdate() {
+
+    }
 }
 
 module.exports = Game;

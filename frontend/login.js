@@ -92,7 +92,7 @@ async function check() {
     renderState(States.CHOOSE_AVATAR);
 }
 
-module.exports = function Init() {
+exports.init = function () {
     loginForm.addEventListener('submit', handleLogin);
     registerForm.addEventListener('submit', registrationHandle);
     logout.addEventListener('click', logoutHandle);
