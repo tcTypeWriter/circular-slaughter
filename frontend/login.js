@@ -1,4 +1,5 @@
 const { _ } = require('./translate');
+const ws = require('./websocket');
 const {
     States,
     renderState,
@@ -16,8 +17,8 @@ headers.append('Content-Type', 'application/json');
 
 async function handleLogin(e) {
     e.preventDefault();
-    const login = loginForm.querySelector('input[name=login]').value;
-    const password = loginForm.querySelector('input[name=password]').value;
+    const login = loginForm.login.value;
+    const password = loginForm.password.value;
 
     const button = loginForm.querySelector('button[type=submit]');
 
@@ -41,9 +42,9 @@ async function handleLogin(e) {
 
 async function registrationHandle(e) {
     e.preventDefault();
-    const login = registerForm.querySelector('input[name=new-login]').value;
-    const password = registerForm.querySelector('input[name=password]').value;
-    const rPassword = registerForm.querySelector('input[name=repeat-password]').value;
+    const login = registerForm['new-login'].value;
+    const password = registerForm.password.value;
+    const rPassword = registerForm['repeat-password'].value;
 
     const button = registerForm.querySelector('button[type=submit]');
 
@@ -76,6 +77,7 @@ async function logoutHandle() {
         method: 'DELETE',
         credentials: 'include',
     });
+    ws.stop();
     renderState(States.LOGIN);
 }
 
@@ -92,9 +94,11 @@ async function check() {
     renderState(States.CHOOSE_AVATAR);
 }
 
-exports.init = function () {
+function init() {
     loginForm.addEventListener('submit', handleLogin);
     registerForm.addEventListener('submit', registrationHandle);
     logout.addEventListener('click', logoutHandle);
     check();
-};
+}
+
+exports.init = init;

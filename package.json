@@ -4,7 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "run": "nodd server.js",
+    "start": "npm run build && node server.js",
+    "build": "npm run po2json && webpack",
     "test": "mocha tests/",
     "xgettext": "xgettext -o html/langs/en.po --language=JavaScript auth/*.js frontend/*.js",
     "msgmerge_ru": "msgmerge -o html/langs/ru.po html/langs/ru.po html/langs/en.po",

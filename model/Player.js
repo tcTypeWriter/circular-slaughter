@@ -5,8 +5,8 @@ const Point = require('./Point');
 
 class Player extends Entity {
 
-    constructor(position, r, avatar) {
-        super(position, r);
+    constructor(position, avatar) {
+        super(position, balance.PLAYER_RADIUS);
         this.ava = avatar;
         this._health = balance.MAX_PLAYER_HEALTH;
         this.createBullet = () => null;

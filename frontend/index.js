@@ -9,7 +9,7 @@ const chooseAvatar = require('./chooseAvatar');
 
 async function main() {
     await translate.init();
-    await delay(3000);
+    await delay(1500 + Math.random() * 1500);
     renderState();
 
     login.init();

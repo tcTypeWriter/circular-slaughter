@@ -1,39 +1,67 @@
+const { directions } = require('../model/constants');
 
-module.exports = function webSocketExample() {
-    let model = {};
+const chooseAvatar = require('./chooseAvatar');
 
-    function renderData(data) {
-        const { points, id } = data;
-        const ctx = document.getElementById('game').getContext('2d');
+const ctx = document.getElementById('canvas').getContext('2d');
 
-        ctx.clearRect(0, 0, 800, 600);
+/** @type {WebSocket} */
+let ws = null;
 
-        points.forEach((point, i) => {
-            ctx.fillStyle = i === id ? 'red' : 'blue';
-            ctx.fillRect(point.x, point.y, 20, 20);
-        });
-    }
+function render(model) {
+    ctx.clearRect(0, 0, 800, 600);
 
-    const ws = new WebSocket('ws://localhost:8080');
+    model.players.forEach(({ pos, ava, r, _health }) => {
+        const img = chooseAvatar.avatars.find(i => i.src.indexOf(ava) >= 0);
+        ctx.drawImage(img, pos.x - r, pos.y - r, 2 * r, 2 * r);
+
+        ctx.fillStyle = 'rgba(255, 0, 0, 0.5)';
+        ctx.beginPath();
+        ctx.arc(pos.x, pos.y, r * (100 - _health) / 100, 0, 2.1 * Math.PI);
+        ctx.fill();
+    });
+}
+
+function start() {
+    ws = new WebSocket('ws://localhost:8080');
 
     ws.onmessage = ({ data: recievedText }) => {
         const data = JSON.parse(recievedText);
-        model = Object.assign(model, data);
-        renderData(model);
+        render(data);
     };
 
     const send = object => ws.send(JSON.stringify(object));
     const move = direction => send({ method: 'move', direction });
     const keys = {
-        ArrowLeft: 'left',
-        ArrowUp: 'up',
-        ArrowRight: 'right',
-        ArrowDown: 'down',
+        a: directions.LEFT,
+        w: directions.UP,
+        d: directions.RIGHT,
+        s: directions.DOWN,
     };
 
-    document.addEventListener('keypress', (e) => {
+    function keyboardHandle(e) {
         if (keys[e.key]) {
             move(keys[e.key]);
         }
-    });
-};
+    }
+
+    document.addEventListener('keypress', keyboardHandle);
+
+    ws.onclose = () => {
+        document.removeEventListener('keypress', keyboardHandle);
+    };
+
+    const avatar = localStorage.getItem('avatar');
+
+    ws.onopen = () => {
+        send({ method: 'start', src: avatar });
+    };
+}
+
+function stop() {
+    if (ws) {
+        ws.close();
+    }
+}
+
+exports.start = start;
+exports.stop = stop;

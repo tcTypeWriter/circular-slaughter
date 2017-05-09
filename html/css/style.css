@@ -18,7 +18,7 @@ body, h1 {
     background-color: yellow;
 }
 #game {
-    background-color: red;
+    background-color: blue;
 }
 #records {
     background-color: orange;
@@ -152,6 +152,11 @@ section {
     width: 25%;
     height: 8%;
     margin: 1% auto;
+}
+
+#game canvas {
+    background: transparent;
+    box-shadow: 0 0 5px 5px;
 }
 
 #records>div {

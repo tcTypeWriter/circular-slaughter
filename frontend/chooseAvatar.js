@@ -9,6 +9,7 @@ const {
 
 const { shuffle } = require('./util');
 
+const ws = require('./websocket');
 
 const avatars = [
     'img/1.png',
@@ -47,9 +48,10 @@ function renderRadio() {
 function submitHandle(e) {
     e.preventDefault();
     renderState(States.GAME);
+    ws.start();
 }
 
-exports.init = function () {
+function init() {
     renderRadio();
 
     chooseAvatarForm.avatar.forEach((i) => {
@@ -60,6 +62,11 @@ exports.init = function () {
     });
 
     chooseAvatarForm.addEventListener('submit', submitHandle);
-};
+}
 
-exports.avatars = avatars;
+exports.init = init;
+exports.avatars = avatars.map((src) => {
+    const img = new Image();
+    img.src = src;
+    return img;
+});
