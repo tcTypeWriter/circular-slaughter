@@ -12,7 +12,7 @@ const moduleAPI = {
                     id INTEGER PRIMARY KEY ASC AUTOINCREMENT,
                     login VARCHAR(255) UNIQUE,
                     password VARCHAR(255)
-                );`, () => console.log('Таблица Users создна'));
+                );`, () => console.log('Users created'));
         });
     },
 
@@ -39,9 +39,7 @@ module.exports = moduleAPI;
 
 /**
  *
- * Ручной тест методов public
- * Перед запуском следует убедится, что база не создана
- * Иначе возможно возникновение ошибки
+ * test public
  *
  */
 if (require.main === module) {
@@ -60,7 +58,7 @@ if (require.main === module) {
             }
 
             assert(user);
-            return console.log(`Пользователь '${user.login}' существует\n${JSON.stringify(user, null, 2)}`);
+            return console.log(`User '${user.login}' exist\n${JSON.stringify(user, null, 2)}`);
         });
     });
 }

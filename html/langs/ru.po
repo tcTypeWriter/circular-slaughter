@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-09 00:14+0500\n"
+"POT-Creation-Date: 2017-05-09 14:41+0500\n"
 "PO-Revision-Date:\n"
 "Last-Translator: Сухоплюев Илья <suhoy95@gmail.com>\n"
 "Language-Team: \n"
@@ -14,6 +14,49 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Poedit 1.8.7.1\n"
 
-#: frontend/index.js:13
-msgid "Hello, world"
-msgstr "Привет мир"
+#: auth/index.js:37
+msgid "not found"
+msgstr ""
+
+#: auth/index.js:58
+msgid "bad login / password"
+msgstr ""
+
+#: frontend/states.js:36 frontend/states.js:45
+msgid "Log In"
+msgstr "Вход"
+
+#: frontend/states.js:47
+msgid "login"
+msgstr "логин"
+
+#: frontend/states.js:49 frontend/states.js:60
+msgid "password"
+msgstr "пароль"
+
+#: frontend/states.js:51
+msgid "Go"
+msgstr "Вперед"
+
+#: frontend/states.js:56
+msgid "Registration"
+msgstr "Регистрация"
+
+#: frontend/states.js:58
+msgid "new login"
+msgstr "новый логин"
+
+#: frontend/states.js:62
+msgid "repeat password"
+msgstr "повторите пароль"
+
+#: frontend/states.js:64
+msgid "Register"
+msgstr "Зарегистрироваться"
+
+#: frontend/states.js:72
+msgid "Choose avatar"
+msgstr ""
+
+#~ msgid "Hello, world"
+#~ msgstr "Привет мир"

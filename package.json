@@ -6,7 +6,7 @@
   "scripts": {
     "run": "nodd server.js",
     "test": "mocha tests/",
-    "xgettext": "xgettext -o html/langs/en.po frontend/*.js",
+    "xgettext": "xgettext -o html/langs/en.po --language=JavaScript auth/*.js frontend/*.js",
     "msgmerge_ru": "msgmerge -o html/langs/ru.po html/langs/ru.po html/langs/en.po",
     "po2json": "npm run po2json_ru && npm run po2json_en",
     "po2json_en": "po2json --pretty --format jed --domain cs html/langs/en.po html/langs/en.json",

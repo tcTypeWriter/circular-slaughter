@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-09 00:14+0500\n"
+"POT-Creation-Date: 2017-05-09 14:41+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,46 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: frontend/index.js:13
-msgid "Hello, world"
+#: auth/index.js:37
+msgid "not found"
+msgstr ""
+
+#: auth/index.js:58
+msgid "bad login / password"
+msgstr ""
+
+#: frontend/states.js:36 frontend/states.js:45
+msgid "Log In"
+msgstr ""
+
+#: frontend/states.js:47
+msgid "login"
+msgstr ""
+
+#: frontend/states.js:49 frontend/states.js:60
+msgid "password"
+msgstr ""
+
+#: frontend/states.js:51
+msgid "Go"
+msgstr ""
+
+#: frontend/states.js:56
+msgid "Registration"
+msgstr ""
+
+#: frontend/states.js:58
+msgid "new login"
+msgstr ""
+
+#: frontend/states.js:62
+msgid "repeat password"
+msgstr ""
+
+#: frontend/states.js:64
+msgid "Register"
+msgstr ""
+
+#: frontend/states.js:72
+msgid "Choose avatar"
 msgstr ""

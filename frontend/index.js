@@ -1,16 +1,14 @@
-const { initTranslate, _ } = require('./translate');
+const { initTranslate } = require('./translate');
 
-const sections = {
-    login: document.getElementById('login'),
-    chooseAvatar: document.getElementById('chooseAvatar'),
-    game: document.getElementById('game'),
-    records: document.getElementById('records'),
-};
+const { renderState } = require('./states');
+
+const { delay } = require('./util');
 
 async function main() {
     await initTranslate();
-
-    console.log(_('Hello, world'));
+    await delay(3000);
+    renderState();
+    require('./login')();
 }
 
 main();

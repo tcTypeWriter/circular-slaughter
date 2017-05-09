@@ -5,6 +5,12 @@ body, h1 {
     font-family: 'Courier New', Courier, monospace;
 }
 
+#loading {
+    background: url('/img/run_man.gif') no-repeat right bottom,
+                url('/img/cofe.jpg') no-repeat center,
+                #252132;
+}
+
 #login {
     background: green;
 }
@@ -75,7 +81,7 @@ section {
     box-sizing: border-box;
     width: 80%;
     margin: 0.3em auto;
-    font-size: 2em;
+    font-size: 1.8em;
 }
 
 .messages {

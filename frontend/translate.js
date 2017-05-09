@@ -1,13 +1,12 @@
 const Jed = require('jed');
 
-
 let translator = null;
 
 const defaultJedConfig = {
     missing_key_callback: key => console.error(`There is no translation for phrase '${key}'`),
     domain: 'cs',
     locale_data: {
-        mur: {
+        cs: {
             '': {
                 domain: 'cs',
                 plural_forms: 'nplurals=2; plural=(n != 1);',
@@ -38,7 +37,20 @@ function _(msgid, string) {
 
 module.exports = {
     async initTranslate() {
-        await changeLangs('ru');
+        const langs = document.body.querySelector('.lang');
+        langs.addEventListener('change', async () => {
+            localStorage.setItem('lang', langs.value);
+            await changeLangs(langs.value);
+            const { renderState } = require('./states');
+            renderState();
+        });
+
+        let prevLang = localStorage.getItem('lang');
+        if (prevLang !== 'en' && prevLang !== 'ru') {
+            prevLang = 'en';
+        }
+        langs.value = prevLang;
+        await changeLangs(prevLang);
     },
     changeLangs,
     _,

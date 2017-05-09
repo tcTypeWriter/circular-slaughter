@@ -58,6 +58,10 @@ wss.on('connection', (ws) => {
     sendModel();
 });
 
+const db = require('./auth/db');
+
+db.init();
+
 server.listen(8080, () => {
     console.log('Listening on %d', server.address().port);
 });

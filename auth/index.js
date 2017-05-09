@@ -1,8 +1,5 @@
-/**
- * Спонсор авторизации "Костыли и велосипеды"
- * Ломать смогут, но не будут (красть особо нечего)
- * После можно доработать
- */
+const _ = s => s;
+
 const crypto = require('crypto');
 
 const Router = require('express').Router;
@@ -35,7 +32,10 @@ const auth = Router();
 auth.get('/session/current', (req, res) => {
     const session = req.cookies && sessions[req.cookies.uuid];
     if (!session) {
-        return res.sendStatus(401);
+        return res.json({
+            type: 'error',
+            message: _('not found'),
+        });
     }
     return res.json(session);
 });
@@ -55,7 +55,7 @@ auth.post('/session/current', (req, res, next) => {
         if (!user) {
             return res.json({
                 type: 'error',
-                message: 'bad login / password',
+                message: _('bad login / password'),
             });
         }
 
@@ -86,7 +86,6 @@ auth.post('/session', (req, res) => {
                 message: err.message,
             });
         }
-        // function исполняется в контексте statment (run query)
         return res.json({ id: this.lastID });
     });
 });
