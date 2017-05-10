@@ -13,6 +13,12 @@ const moduleAPI = {
                     login VARCHAR(255) UNIQUE,
                     password VARCHAR(255)
                 );`, () => console.log('Users created'));
+            db.exec(
+                `CREATE TABLE IF NOT EXISTS Records (
+                    id INTEGER PRIMARY KEY ASC AUTOINCREMENT,
+                    login VARCHAR(255),
+                    score INTEGER
+                );`, () => console.log('Records created'));
         });
     },
 
@@ -31,6 +37,24 @@ const moduleAPI = {
         db.run(
             'INSERT INTO Users (login, password) VALUES (?, ?)',
             [login, password],
+            callback);
+    },
+
+    getRecords(limit, callback) {
+        console.log(`[getRecords] limit=${limit}`);
+
+        db.all(
+            'SELECT * FROM Records ORDER BY score ASC LIMIT ?',
+            [limit],
+            callback);
+    },
+
+    createRecord(login, score, callback) {
+        console.log(`[createRecord] login='${login}' score='${score}'`);
+
+        db.run(
+            'INSERT INTO Records (login, score) VALUES (?, ?)',
+            [login, score],
             callback);
     },
 };

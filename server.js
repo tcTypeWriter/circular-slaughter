@@ -38,7 +38,7 @@ setInterval(() => {
 
 wss.on('connection', (ws) => {
     let player = null;
-    console.log('connect ', ws);
+
     ws.on('message', (message) => {
         const data = JSON.parse(message);
 

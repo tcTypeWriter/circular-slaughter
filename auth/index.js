@@ -100,6 +100,38 @@ auth.delete('/session/current', (req, res) => {
     return res.sendStatus(400);
 });
 
+
+auth.get('/records', (req, res) => {
+    db.getRecords(30, (err, rows) => {
+        if (err) {
+            return res.json({
+                type: 'error',
+                message: err.message,
+            });
+        }
+        return res.json(rows);
+    });
+});
+
+auth.post('/records', (req, res) => {
+    const session = req.cookies && sessions[req.cookies.uuid];
+    if (!session) {
+        return res.json({
+            type: 'error',
+            message: _('not found'),
+        });
+    }
+    return db.createRecord(session.login, 0, function recordCreated(err) {
+        if (err) {
+            return res.json({
+                type: 'error',
+                message: err.message,
+            });
+        }
+        return res.json({ id: this.lastID });
+    });
+});
+
 module.exports = {
     auth,
     getSession(uuid) {
