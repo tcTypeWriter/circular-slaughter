@@ -1,9 +1,13 @@
 
 const { balance } = require('./constants');
 
+const Point = require('./Point');
+const Player = require('./Player');
+
 class Game {
     constructor() {
         this.players = [];
+        this.bullets = [];
         this.traps = [];
         this.items = [];
     }
@@ -17,18 +21,7 @@ class Game {
             return;
         }
 
-        const newTrapEvent = () => {
-            this.generateNewTrap();
-            this.trapTimeout = setTimeout(newTrapEvent, balance.NEW_TRAP_TIMEOUT);
-        };
-
-        const newItemEvent = () => {
-            this.generateNewItem();
-            this.itemTimeout = setTimeout(newItemEvent, balance.NEW_ITEM_TIMEOUT);
-        };
-
-        newItemEvent();
-        newTrapEvent();
+        setInterval(this.update.bind(this), 1000);
     }
 
     stop() {
@@ -37,14 +30,31 @@ class Game {
         this.trapTimeout = this.itemTimeout = null;
     }
 
+    createPlayer(src, login) {
+        const player = new Player(Point.getRandom(), src, login);
+        this.players.push(player);
+        return player;
+    }
+
     generateNewTrap() {
-        // TODO
+
     }
 
     generateNewItem() {
-        // TODO
+
     }
 
+    update() {
+        this.players.forEach((p) => { p.health -= 5; });
+    }
+
+    bulletsUpdate() {
+
+    }
+
+    trapsUpdate() {
+
+    }
 }
 
 module.exports = Game;

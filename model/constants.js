@@ -38,6 +38,7 @@ const balance = {
     NEW_TRAP_TIMEOUT: 15000,
     NEW_ITEM_TIMEOUT: 10000,
 
+    PLAYER_RADIUS: 25,
     MAX_PLAYER_HEALTH: 100,
     DEFAULT_PLAYER_SPEED: 5,
 
@@ -55,6 +56,7 @@ const balance = {
     SAW_DAMAGE_INTERVAL: 1000,
     SAW_RADIUS: 40,
     SAW_SPEED: 2,
+
 
     BULLET_RADIUS: 5,
 

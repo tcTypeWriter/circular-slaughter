@@ -19,3 +19,12 @@ Content-Type: application/json
 
 DELETE http://localhost:8080/session/current HTTP/1.1
 Cookie: uuid=Tnhip7a3HWZ9DxUIlPLmyg%3D%3D
+
+###
+
+GET http://localhost:8080/records HTTP/1.1
+
+###
+
+POST http://localhost:8080/records HTTP/1.1
+Cookie: uuid=AUG0h%2Fzl8k3u9%2Fr6cdLQPg%3D%3D

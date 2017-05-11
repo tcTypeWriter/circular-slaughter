@@ -5,13 +5,15 @@ const Point = require('./Point');
 
 class Player extends Entity {
 
-    constructor(position, r, avatar) {
-        super(position, r);
+    constructor(position, avatar, login) {
+        super(position, balance.PLAYER_RADIUS);
         this.ava = avatar;
         this._health = balance.MAX_PLAYER_HEALTH;
         this.createBullet = () => null;
         this.bullet = null;
         this.calldown = Infinity;
+        this.score = 0;
+        this.login = login;
     }
 
     get health() {
@@ -19,6 +21,9 @@ class Player extends Entity {
     }
 
     set health(value) {
+        if (value >= 0 ){
+            this.score += Math.abs(this._health - value);
+        }
         if (value < 0) {
             this._health = 0;
         } else if (value > balance.MAX_PLAYER_HEALTH) {

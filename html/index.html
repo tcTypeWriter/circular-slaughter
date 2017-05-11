@@ -2,12 +2,66 @@
 <html>
 
 <head>
-    <title>Socket example</title>
+    <title>Circular Slaughter - 2D shooter</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
-    <canvas id="canvas" width="800" height="600"></canvas>
-    <script src="script.js"></script>
+    <div class="toolbar">
+        <h1 class="logo">Loading...</h1>
+        <div>
+            <select name="lang" class="lang" style="display: none">
+                <option value="ru">ru</option>
+                <option value="en">en</option>
+            </select>
+            <button class="logout" style="display: none">Log Out</button>
+        </div>
+    </div>
+
+    <section id="loading"></section>
+
+    <section id="login" style="display: none">
+        <div class="wrapper fix-view">
+            <form name="login-form">
+                <h2>Login</h2>
+                <input type="text" name="login" placeholder="login" required />
+                <input type="password" name="password" placeholder="password" required />
+                <button type="submit">Go</button>
+            </form>
+            <form name="register-form">
+                <h2>Registration</h2>
+                <input type="text" name="new-login" placeholder="login" required/>
+                <input type="password" name="password" placeholder="password" required />
+                <input type="password" name="repeat-password" placeholder="repeat password" required />
+                <button type="submit">register</button>
+            </form>
+            <div class="messages"></div>
+        </div>
+    </section>
+
+    <section id="chooseAvatar" style="display: none">
+        <form name="choose-avatar" class="fix-view">
+            <div class="avatars"></div>
+            <button type="submit">Go</button>
+        </form>
+    </section>
+
+    <section id="game" style="display: none">
+        <canvas class="fix-view" id="canvas" width="800px" height="600px"></canvas>
+    </section>
+
+    <section id="records" style="display: none">
+        <div class="fix-view">
+            <div class="champion">Top: <strong>XXX</strong>[Ggelkian]</div>
+            <ol>
+            </ol>
+            <button class="again">Go again</button>
+            <button class="changeAvatar">Change avatar</button>
+        </div>
+    </section>
+    <script src="bundle.js"></script>
 </body>
 
 </html>
