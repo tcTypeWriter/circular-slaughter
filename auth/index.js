@@ -102,7 +102,7 @@ auth.delete('/session/current', (req, res) => {
 
 
 auth.get('/records', (req, res) => {
-    db.getRecords(30, (err, rows) => {
+    db.getRecords(20, (err, rows) => {
         if (err) {
             return res.json({
                 type: 'error',

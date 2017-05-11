@@ -10,6 +10,7 @@ const {
     },
 } = require('./states');
 
+const session = {};
 const messages = sections.login.querySelector('.messages');
 
 const headers = new Headers();
@@ -37,6 +38,9 @@ async function handleLogin(e) {
         messages.innerHTML = `<div class='failure'>${_(data.message)}</div>`;
         return;
     }
+
+    Object.assign(session, data);
+
     renderState(States.CHOOSE_AVATAR);
 }
 
@@ -91,6 +95,9 @@ async function check() {
     if (data.type === 'error') {
         return;
     }
+
+    Object.assign(session, data);
+
     renderState(States.CHOOSE_AVATAR);
 }
 
@@ -102,3 +109,4 @@ function init() {
 }
 
 exports.init = init;
+exports.session = session;

@@ -6,6 +6,8 @@ const { delay } = require('./util');
 
 const login = require('./login');
 const chooseAvatar = require('./chooseAvatar');
+const records = require('./records');
+
 
 async function main() {
     await translate.init();
@@ -14,6 +16,7 @@ async function main() {
 
     login.init();
     chooseAvatar.init();
+    records.init();
 }
 
 main();

@@ -22,6 +22,7 @@ const wss = new WebSocket.Server({
     verifyClient: ({ req }) => true,
 });
 
+const db = require('./auth/db');
 const Game = require('./model/Game');
 
 const model = new Game();
@@ -33,6 +34,16 @@ setInterval(() => {
         if (ws.readyState === WebSocket.OPEN) {
             ws.send(JSON.stringify(model));
         }
+        if (ws.player && ws.player.health === 0) {
+            const player = ws.player;
+            ws.player = undefined;
+            db.createRecord(player.login, player.score, (err) => {
+                if (err) {
+                    console.warn(err);
+                }
+                ws.close();
+            });
+        }
     });
 }, 30);
 
@@ -43,7 +54,8 @@ wss.on('connection', (ws) => {
         const data = JSON.parse(message);
 
         if (data.method === 'start') {
-            player = model.createPlayer(data.src);
+            player = model.createPlayer(data.src, data.login);
+            ws.player = player;
         } else if (data.method === 'move') {
             player.move(data.direction);
         }
@@ -58,8 +70,6 @@ wss.on('connection', (ws) => {
         model.players = model.players.filter(p => p !== player);
     });
 });
-
-const db = require('./auth/db');
 
 db.init();
 

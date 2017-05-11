@@ -1,6 +1,9 @@
 const { directions } = require('../model/constants');
 
+const states = require('./states');
+const login = require('./login');
 const chooseAvatar = require('./chooseAvatar');
+const records = require('./records');
 
 const ctx = document.getElementById('canvas').getContext('2d');
 
@@ -47,13 +50,15 @@ function start() {
     document.addEventListener('keypress', keyboardHandle);
 
     ws.onclose = () => {
+        states.renderState(states.States.RECORDS);
+        records.refetch();
         document.removeEventListener('keypress', keyboardHandle);
     };
 
     const avatar = localStorage.getItem('avatar');
 
     ws.onopen = () => {
-        send({ method: 'start', src: avatar });
+        send({ method: 'start', src: avatar, login: login.session.login });
     };
 }
 

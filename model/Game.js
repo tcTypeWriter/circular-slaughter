@@ -30,8 +30,8 @@ class Game {
         this.trapTimeout = this.itemTimeout = null;
     }
 
-    createPlayer(src) {
-        const player = new Player(Point.getRandom(), src);
+    createPlayer(src, login) {
+        const player = new Player(Point.getRandom(), src, login);
         this.players.push(player);
         return player;
     }

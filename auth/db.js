@@ -44,7 +44,7 @@ const moduleAPI = {
         console.log(`[getRecords] limit=${limit}`);
 
         db.all(
-            'SELECT * FROM Records ORDER BY score ASC LIMIT ?',
+            'SELECT * FROM Records ORDER BY score DESC LIMIT ?',
             [limit],
             callback);
     },
